@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yantra AI - Cement Industry Solutions</title>
+    <meta name="description" content="Explore Yantra AI's innovative AI and computer vision solutions tailored for the cement industry, optimizing production and efficiency.">
+    <meta name="keywords" content="Yantra AI, cement industry, AI solutions, computer vision, kiln optimization, refractory monitoring">
+    <meta property="og:title" content="Yantra AI - Cement Industry Solutions">
+    <meta property="og:description" content="Discover how Yantra AI transforms cement production with AI-driven insights for kiln optimization, material analysis, and more.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1620121692029-d088224ddc74">
+    <meta property="og:url" content="https://yantraai.com/cement-industry">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="https://via.placeholder.com/50?text=Logo" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #fafafa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar Styles (Reused from Homepage) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: 70px;
+        }
+
+        .logo img {
+            max-height: 50px;
+            width: auto;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            margin: 0 15px;
+            color: #000;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #2a3c66;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        .contact-btn {
+            padding: 8px 16px;
+            background: rgb(255, 255, 255);
+            color: #fff;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: rgb(230, 230, 230);
+            transform: scale(1.05);
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 1000;
+            min-width: 200px;
+            flex-direction: column;
+            gap: 5px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .nav-item:hover .dropdown {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-column a {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            color: #000;
+            font-weight: 500;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-column a i {
+            margin-right: 10px;
+            color: #2a3c66;
+        }
+
+        .dropdown-column a:hover {
+            background: #f1f1f1;
+            color: #2a3c66;
+            border-radius: 4px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #000;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.open .top {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.open .middle {
+            opacity: 0;
+        }
+
+        .hamburger.open .bottom {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Hero Section with Animated Background */
+        .hero-section {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 70px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #2a3c66, #6b7ca5);
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1620121692029-d088224ddc74') no-repeat center/cover;
+            opacity: 0.6;
+            z-index: 1;
+            animation: subtleZoom 20s ease-in-out infinite;
+        }
+
+        @keyframes subtleZoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-content .cta-btn {
+            padding: 12px 24px;
+            background: #fff;
+            color: #2a3c66;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero-content .cta-btn:hover {
+            background: #6b7ca5;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background: #fff;
+            padding: 80px 20px;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2a3c66;
+            margin-bottom: 60px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #2a3c66, #6b7ca5);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            color: #2a3c66;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .timeline-img {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .timeline-img img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background: #2a3c66;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: translateX(-50%) scale(1.3);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after,
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -20px;
+            border-left-color: #f9f9f9;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -20px;
+            border-right-color: #f9f9f9;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background-image: radial-gradient(circle, #e8ecef, #d3d9e0);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .benefits-section h2 {
+            font-size: 2.5rem;
+            color: #2a3c66;
+            margin-bottom: 40px;
+        }
+
+        .benefits-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .benefit-card {
+            flex: 1 1 280px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card i {
+            font-size: 2rem;
+            color: #2a3c66;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            color: #2a3c66;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #2a3c66;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-section .cta-btn {
+            padding: 14px 30px;
+            background: #fff;
+            color: #2a3c66;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-section .cta-btn:hover {
+            background: #6b7ca5;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #fff;
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .faq-section h2 {
+            font-size: 2.5rem;
+            color: #2a3c66;
+            margin-bottom: 40px;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2a3c66;
+            background: #f1f1f1;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            font-size: 1rem;
+            color: #555;
+            background: #fff;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding: 15px 20px;
+        }
+
+        /* Footer Styles (Reused from Homepage) */
+        .footer {
+            background: #f9f9f9;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1 1 200px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #2a3c66;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.7;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-column a:hover {
+            color: #2a3c66;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 1.2em;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #2a3c66;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 767px) {
+            .navbar {
+                padding: 10px;
+                justify-content: space-between;
+            }
+
+            .logo img {
+                max-height: 40px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                margin: 15px 0;
+                font-size: 1.2rem;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .nav-item {
+                width: 100%;
+                text-align: center;
+            }
+
+            .dropdown {
+                position: static;
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                padding: 15px;
+                border-radius: 6px;
+                margin-top: 10px;
+                box-shadow: none;
+                max-height: 0;
+                transform: none;
+            }
+
+            .nav-item.open .dropdown {
+                display: flex;
+                max-height: 500px;
+                opacity: 1;
+            }
+
+            .dropdown-column {
+                width: 100%;
+            }
+
+            .dropdown-column a {
+                justify-content: center;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-section {
+                height: 60vh;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .timeline-content,
+            .timeline-img {
+                width: 100%;
+                margin-left: 40px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -20px;
+                border-right-color: #f9f9f9;
+                border-left-color: transparent;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .benefits-section h2,
+            .cta-section h2,
+            .timeline-section h2,
+            .faq-section h2 {
+                font-size: 2rem;
+            }
+
+            .benefit-card {
+                flex: 1 1 100%;
+            }
+
+            .faq-question {
+                font-size: 1.1rem;
+            }
+
+            .faq-answer {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 479px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .cta-btn {
+                padding: 10px 20px;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .timeline-img img {
+                max-width: 200px;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><img src="LOGO.jpg" alt="Yantra AI"></div>
+        <nav class="nav-links">
+            <a href="hometrial.html">Home</a>
+            <div class="nav-item">
+                <a href="#industries" aria-haspopup="true">Industries</a>
+                <div class="dropdown" role="menu">
+                    <div class="dropdown-column">
+                        <a href="#"><i class="fas fa-plug"></i> Power</a>
+                        <a href="#"><i class="fas fa-brain"></i> AI</a>
+                        <a href="#"><i class="fas fa-fire"></i> Thermal</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <a href="#"><i class="fas fa-laptop-code"></i> IT</a>
+                        <a href="CementIndustry.html"><i class="fas fa-fire"></i> Cement</a>
+                        <a href="#"><i class="fas fa-vials"></i> Chemical</a>
+                    </div>
+                </div>
+            </div>
+            <a href="hometrial.html#services">Services</a>
+            <a href="careerpage.html">Careers</a>
+            <a href="AboutPage.html">About</a>
+            <a href="ContactPage.html" class="contact-btn">Contact Us</a>
+        </nav>
+        <div id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="bar top"></span>
+            <span class="bar middle"></span>
+            <span class="bar bottom"></span>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1 data-aos="zoom-in" data-aos-delay="200">Revolutionizing Cement Production</h1>
+            <p data-aos="fade-up" data-aos-delay="400">Yantra AI’s cutting-edge computer vision and AI solutions optimize cement industry operations, from kiln efficiency to material analysis.</p>
+            <a href="ContactPage.html" class="cta-btn" data-aos="fade-up" data-aos-delay="600">Discover Our Solutions</a>
+        </div>
+    </section>
+
+    <section class="timeline-section" id="industries">
+        <h2 data-aos="fade-up" data-aos-duration="1000">Our Cement Industry Solutions</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                <div class="timeline-content">
+                    <h3>Sinter Flame Monitoring</h3>
+                    <p>Real-time monitoring of sinter flames to optimize combustion, reduce emissions by up to 20%, and improve kiln efficiency.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img">
+                    <img src="https://images.pexels.com/photos/258759/pexels-photo-258759.jpeg" alt="Sinter Flame Monitoring">
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="300">
+                <div class="timeline-content">
+                    <h3>Coal Particle Sizing</h3>
+                    <p>Accurate particle size analysis for coal to enhance fuel efficiency and predict crusher maintenance needs, reducing costs by 15%.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img">
+                    <img src="https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg" alt="Coal Particle Sizing">
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
+                <div class="timeline-content">
+                    <h3>Ladle Tracking & Refractory Monitoring</h3>
+                    <p>Thermal imaging and AI to track ladles and monitor refractory linings, extending equipment life by 30% and minimizing downtime.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img">
+                    <img src="https://images.pexels.com/photos/162568/construction-crane-building-industry-162568.jpeg" alt="Refractory Monitoring">
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="500">
+                <div class="timeline-content">
+                    <h3>Volumetric Analysis</h3>
+                    <p>3D vision systems for precise material volume estimates, streamlining inventory and supply chain management for cement plants.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img">
+                    <img src="https://images.pexels.com/photos/221027/pexels-photo-221027.jpeg" alt="Volumetric Analysis">
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="600">
+                <div class="timeline-content">
+                    <h3>Conveyor Belt Monitoring</h3>
+                    <p>Track belt wear and load distribution to reduce unscheduled downtimes and enhance material handling efficiency by 25%.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img">
+                    <img src="https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg" alt="Conveyor Belt Monitoring">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <h2 data-aos="fade-up" data-aos-duration="1000">Why Choose Yantra AI?</h2>
+        <div class="benefits-container">
+            <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-rocket"></i>
+                <h3>Boosted Efficiency</h3>
+                <p>Optimize fuel consumption and raw material mixes, achieving 10-15x ROI through AI-driven process control.</p>
+            </div>
+            <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Proactive Maintenance</h3>
+                <p>Reduce downtime by up to 25% with real-time monitoring and predictive maintenance insights.</p>
+            </div>
+            <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-globe"></i>
+                <h3>Sustainability</h3>
+                <p>Lower carbon emissions and enhance eco-friendly operations with intelligent fuel and material analysis.</p>
+            </div>
+            <div class="benefit-card" data-aos="fade-up" data-aos-delay="500">
+                <i class="fas fa-cogs"></i>
+                <h3>Scalable Solutions</h3>
+                <p>Deploy modular, cloud-ready platforms tailored to your cement plant’s unique needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" data-aos="fade-up" data-aos-duration="1000">
+        <h2 data-aos="zoom-in" data-aos-delay="200">Transform Your Cement Operations</h2>
+        <p data-aos="fade-up" data-aos-delay="400">Partner with Yantra AI to leverage cutting-edge AI and computer vision for smarter, more efficient cement production.</p>
+        <a href="ContactPage.html" class="cta-btn" data-aos="fade-up" data-aos-delay="600">Get in Touch</a>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <h2 data-aos="fade-up" data-aos-duration="1000">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-question">How does Yantra AI improve cement production efficiency?<i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Our AI-driven solutions optimize kiln operations, fuel consumption, and material handling through real-time monitoring and predictive analytics, achieving up to 15x ROI.</div>
+            </div>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-question">What industries does Yantra AI serve besides cement?<i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Yantra AI provides solutions for power, thermal, chemical, IT, and manufacturing industries, tailoring AI and computer vision to specific operational needs.</div>
+            </div>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="faq-question">How do your solutions support sustainability?<i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">We reduce carbon emissions by optimizing fuel usage and material mixes, enabling eco-friendly operations with intelligent analysis and process control.</div>
+            </div>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="faq-question">Can Yantra AI’s solutions integrate with existing systems?<i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Yes, our modular, cloud-ready platforms are designed to seamlessly integrate with your existing infrastructure, ensuring scalability and minimal disruption.</div>
+            </div>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                <div class="faq-question">How do I get started with Yantra AI?<i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Contact us through our website to schedule a consultation. Our team will assess your needs and tailor a solution to optimize your operations.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Yantra AI</h4>
+                <p>Get in Touch</p>
+                <div class="social-icons">
+                    <a href="https://twitter.com/yantraai" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/yantraai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:contact@yantraai.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Industries</h4>
+                <a href="#">Chemical</a>
+                <a href="CementIndustry.html">Cement</a>
+                <a href="#">Power</a>
+                <a href="#">Manufacturing</a>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookies Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Documentation</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="AboutPage.html">About Us</a>
+                <a href="careerpage.html">Careers</a>
+                <a href="#">Blog</a>
+                <a href="ContactPage.html">Contact</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 Yantra AI. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                startEvent: 'DOMContentLoaded'
+            });
+
+            // Navbar Functionality
+            const burger = document.getElementById('hamburger');
+            const nav = document.querySelector('.nav-links');
+            const industriesLink = document.querySelector('.nav-item > a[href="#industries"]');
+            const dropdown = document.querySelector('.dropdown');
+
+            burger.addEventListener('click', () => {
+                const isOpen = burger.classList.toggle('open');
+                burger.setAttribute('aria-expanded', isOpen);
+                nav.classList.toggle('open');
+            });
+
+            industriesLink.addEventListener('click', (e) => {
+                if (window.innerWidth <= 767) {
+                    e.preventDefault();
+                    dropdown.parentElement.classList.toggle('open');
+                }
+            });
+
+            industriesLink.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && window.innerWidth <= 767) {
+                    e.preventDefault();
+                    dropdown.parentElement.classList.toggle('open');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 767 && !link.parentElement.classList.contains('nav-item')) {
+                        burger.classList.remove('open');
+                        burger.setAttribute('aria-expanded', false);
+                        nav.classList.remove('open');
+                    }
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 767 && !e.target.closest('.nav-item')) {
+                    dropdown.parentElement.classList.remove('open');
+                }
+            });
+
+            // FAQ Toggle Functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    const answer = question.nextElementSibling;
+                    const isActive = answer.classList.contains('active');
+
+                    // Close all other FAQ items
+                    document.querySelectorAll('.faq-answer').forEach(item => {
+                        item.classList.remove('active');
+                        item.previousElementSibling.classList.remove('active');
+                    });
+
+                    // Toggle the clicked FAQ item
+                    if (!isActive) {
+                        answer.classList.add('active');
+                        question.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
